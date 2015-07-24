@@ -17,6 +17,16 @@
         <input type="number" name="age" ng-model="age" />
       </p>
 
+      <p>
+        <label for="phone">Phone Number:</label>
+        <input type="text" name="phone" ng-model="phone" ng-required="true" ng-minlength="12" ng-maxlength="13" ng-pattern="/^\d{3}-\d{3,4}-\d{4}$/"/>
+        <p ng-show="form.phone.$error.required && form.$submitted">전화번호를 입력하세요</p>
+        <p ng-show="form.phone.$error.minlength && form.$submitted">최소 13글자 이상 입력하세요</p>
+        <p ng-show="form.phone.$error.maxlength && form.$submitted">최대 14글자까지 입력하세요</p>
+        <p ng-show="form.phone.$error.pattern && form.$submitted">010-xxx-xxxx 형식으로 입력하세요</p>
+      </p>
+
+      <button type="submit">제출</button>
     </form>
 
     <pre>{{form|json}}</pre>
