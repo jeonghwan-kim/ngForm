@@ -13,7 +13,7 @@
       </p>
 
       <p>
-        <label for="username">Age:</label>
+        <label for="age">Age:</label>
         <input type="number" name="age" ng-model="age" />
       </p>
 
@@ -25,11 +25,18 @@
         <p ng-show="form.phone.$error.maxlength && form.$submitted">최대 14글자까지 입력하세요</p>
         <p ng-show="form.phone.$error.pattern && form.$submitted">010-xxx-xxxx 형식으로 입력하세요</p>
       </p>
+      
+      <p>
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" ng-model="email" email-validate />
+        <p ng-show="form.email.$error.email" >이메일 형식에 맞게 입력하세요</p>
+        <p ng-show="form.email.$error.gmail" >구글 메일을 입력하세요</p>
+      </p>
 
       <button type="submit">제출</button>
     </form>
 
-    <pre>{{form|json}}</pre>
+    <pre>{{form.email|json}}</pre>
 
   </div>
 
