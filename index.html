@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>ngForm seminar</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="MyCtrl">
+
+<form name="myForm" novalidate ng-submit="login(myForm.$valid)">
+
+	<p>
+		<label for="email">email:</label>
+		<input type="email" name="email" ng-model="email" ng-required="true" email-validate gmail-validate />
+		<p ng-show="myForm.email.$error.email">이메일 형식에 맞게 입력하세요</p>
+		<p ng-show="myForm.email.$error.required">이메일을 반드시 입력하세요</p>
+		<p ng-show="myForm.email.$error.gmail">지메일 주소를 입력하세요</p>
+	</p>
+
+	<p>
+		<label for="password">password:</label>
+		<input type="password" name="password" ng-model="password" ng-required="true" ng-minlength="6" />
+		<p ng-show="myForm.password.$error.required">비밀번호를 반드시 입력하세요</p>
+		<p ng-show="myForm.password.$error.minlength">비밀번호는 6글자 이상 입력하세요</p>
+	</p>
+
+	<p>
+		<button type="submit">제출</button>
+	</p>
+</form>
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
